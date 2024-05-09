@@ -1,4 +1,6 @@
 import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Optional;
 import java.util.UUID;
 
 public class StudentService {
@@ -13,4 +15,20 @@ public class StudentService {
     public List<Student> getAllStudents(){
         return repo.getAllStudents();
     }
+
+
+    public Student findById(String id){
+        return repo.findStudentById(id).orElseThrow(()->new NoSuchElementException("No Student found with ID: " + id));
+    }
+
+
+
+
+
+
+
+
+
+
+
 }
